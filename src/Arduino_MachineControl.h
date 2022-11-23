@@ -221,20 +221,32 @@ public:
 	 * Maximum input voltage is 10V. 
 	 */
 	void set0_10V() {
-		ch0_in1 = 1;
-		ch0_in2 = 1;
-		ch0_in3 = 0;
-		ch0_in4 = 1;
+		set0_10V(0);
+		set0_10V(1);
+		set0_10V(2);
+	}
 
-		ch1_in1 = 1;
-		ch1_in2 = 1;
-		ch1_in3 = 0;
-		ch1_in4 = 1;
-
-		ch2_in1 = 1;
-		ch2_in2 = 1;
-		ch2_in3 = 0;
-		ch2_in4 = 1;
+	void set0_10V(int channel) {
+		switch (channel) {
+			case 0:
+				ch0_in1 = 1;
+				ch0_in2 = 1;
+				ch0_in3 = 0;
+				ch0_in4 = 1;
+				break;
+			case 1:
+				ch1_in1 = 1;
+				ch1_in2 = 1;
+				ch1_in3 = 0;
+				ch1_in4 = 1;
+				break;
+			case 2:
+				ch2_in1 = 1;
+				ch2_in2 = 1;
+				ch2_in3 = 0;
+				ch2_in4 = 1;
+				break;
+		}
 	}
 
 	 /**
@@ -242,20 +254,32 @@ public:
 	 * Note: 24V are available from the carrier to power the 4-20mA sensors.   
 	 */
 	void set4_20mA() {
-		ch0_in1 = 1;
-		ch0_in2 = 0;
-		ch0_in3 = 1;
-		ch0_in4 = 0;
+		set4_20mA(0);
+		set4_20mA(1);
+		set4_20mA(2);
+	}
 
-		ch1_in1 = 1;
-		ch1_in2 = 0;
-		ch1_in3 = 1;
-		ch1_in4 = 0;
-
-		ch2_in1 = 1;
-		ch2_in2 = 0;
-		ch2_in3 = 1;
-		ch2_in4 = 0;
+	void set4_20mA(int channel) {
+		switch (channel) {
+			case 0:
+				ch0_in1 = 1;
+				ch0_in2 = 0;
+				ch0_in3 = 1;
+				ch0_in4 = 0;
+				break;
+			case 1:
+				ch1_in1 = 1;
+				ch1_in2 = 0;
+				ch1_in3 = 1;
+				ch1_in4 = 0;
+				break;
+			case 2:
+				ch2_in1 = 1;
+				ch2_in2 = 0;
+				ch2_in3 = 1;
+				ch2_in4 = 0;
+				break;
+		}
 	}
 
 	 /**
@@ -263,20 +287,32 @@ public:
 	 * The voltage sampled is the voltage division between the 100k resistor and the input resistor (NTC/PTC)  
 	 */
 	void setNTC() {
-		ch0_in1 = 0;
-		ch0_in2 = 0;
-		ch0_in3 = 1;
-		ch0_in4 = 1;
+		setNTC(0);
+		setNTC(1);
+		setNTC(2);
+	}
 
-		ch1_in1 = 0;
-		ch1_in2 = 0;
-		ch1_in3 = 1;
-		ch1_in4 = 1;
-
-		ch2_in1 = 0;
-		ch2_in2 = 0;
-		ch2_in3 = 1;
-		ch2_in4 = 1;
+	void setNTC(int channel) {
+		switch (channel) {
+			case 0:
+				ch0_in1 = 0;
+				ch0_in2 = 0;
+				ch0_in3 = 1;
+				ch0_in4 = 1;
+				break;
+			case 1:
+				ch1_in1 = 0;
+				ch1_in2 = 0;
+				ch1_in3 = 1;
+				ch1_in4 = 1;
+				break;
+			case 2:
+				ch2_in1 = 0;
+				ch2_in2 = 0;
+				ch2_in3 = 1;
+				ch2_in4 = 1;
+				break;
+		}
 	}
 
 	mbed::AnalogIn& operator[](int index) {
